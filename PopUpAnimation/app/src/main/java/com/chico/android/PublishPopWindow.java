@@ -55,14 +55,22 @@ public class PublishPopWindow extends PopupWindow implements View.OnClickListene
         showAtLocation(anchor, Gravity.BOTTOM, 0, 0);
     }
 
+    /**
+     * 显示进入动画效果
+     * @param layout
+     */
     private void showAnimation(ViewGroup layout) {
+        //遍历根试图下的一级子试图
         for (int i = 0; i < layout.getChildCount(); i++) {
             final View child = layout.getChildAt(i);
+            //忽略关闭组件
             if (child.getId() == R.id.ll_close) {
                 continue;
             }
+            //设置所有一级子试图的点击事件
             child.setOnClickListener(this);
             child.setVisibility(View.INVISIBLE);
+            //延迟显示每个子试图(主要动画就体现在这里)
             Observable.timer(i * 50, TimeUnit.MILLISECONDS)
                     .subscribeOn(Schedulers.newThread())
                     .observeOn(AndroidSchedulers.mainThread())
@@ -82,13 +90,16 @@ public class PublishPopWindow extends PopupWindow implements View.OnClickListene
 
     }
 
+    /**
+     * 关闭动画效果
+     * @param layout
+     */
     private void closeAnimation(ViewGroup layout) {
         for (int i = 0; i < layout.getChildCount(); i++) {
             final View child = layout.getChildAt(i);
             if (child.getId() == R.id.ll_close) {
                 continue;
             }
-            child.setOnClickListener(this);
             Observable.timer((layout.getChildCount() - i - 1) * 30, TimeUnit.MILLISECONDS)
                     .subscribeOn(Schedulers.newThread())
                     .observeOn(AndroidSchedulers.mainThread())
@@ -149,8 +160,6 @@ public class PublishPopWindow extends PopupWindow implements View.OnClickListene
             case R.id.weblink_window:
             case R.id.text_window:
             case R.id.ll_link_des:
-                goCreate();
-                break;
             case R.id.ll_close:
                 if (isShowing()) {
                     closeAnimation(contentView);
@@ -159,17 +168,5 @@ public class PublishPopWindow extends PopupWindow implements View.OnClickListene
             default:
                 break;
         }
-    }
-
-    private void goCreate() {
-        Observable.timer(500, TimeUnit.MILLISECONDS)
-                .subscribeOn(Schedulers.newThread())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Action1<Long>() {
-                    @Override
-                    public void call(Long aLong) {
-                        closeAnimation(contentView);
-                    }
-                });
     }
 }
