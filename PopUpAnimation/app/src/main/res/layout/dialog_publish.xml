@@ -1,0 +1,174 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/contentView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_centerHorizontal="true"
+    android:alpha="0.9"
+    android:background="@mipmap/bg_dialog_publish"
+    android:gravity="bottom|center_horizontal">
+
+    <LinearLayout
+        android:id="@+id/ll_close"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_alignParentBottom="true"
+        android:background="@android:color/white"
+        android:gravity="center">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:padding="8dp"
+            android:src="@mipmap/ic_publish_delete" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/ll_link_des"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/ll_close"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:gravity="center">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="发布链接支持解析微信文章、B站、秒拍等链接"
+            android:textColor="#7f7f7f"
+            android:textSize="12sp" />
+        <ImageView
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="3dp"
+            android:src="@mipmap/ic_why_tag_blue" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/weblink_window"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/ll_close"
+        android:layout_alignLeft="@+id/video_window"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="80dp"
+        android:layout_marginTop="40dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@mipmap/ic_publish_weblink" />
+
+        <TextView
+            android:textSize="15sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="链接"
+            android:textColor="#606060" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/text_window"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/ll_close"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="80dp"
+        android:layout_marginTop="40dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@mipmap/ic_publish_text" />
+
+        <TextView
+            android:textSize="15sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="文字"
+            android:textColor="#606060" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/photo_window"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/weblink_window"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@mipmap/ic_publish_photo" />
+
+        <TextView
+            android:textSize="15sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="图片"
+            android:textColor="#606060" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/video_window"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/weblink_window"
+        android:layout_centerHorizontal="true"
+        android:layout_toLeftOf="@+id/photo_window"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@mipmap/ic_publish_video" />
+
+        <TextView
+            android:textSize="15sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="视频"
+            android:textColor="#606060" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/voice_window"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/weblink_window"
+        android:layout_centerHorizontal="true"
+        android:layout_toRightOf="@+id/photo_window"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@mipmap/ic_publish_voice" />
+
+        <TextView
+            android:textSize="15sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="语音"
+            android:textColor="#606060" />
+    </LinearLayout>
+
+</RelativeLayout>
