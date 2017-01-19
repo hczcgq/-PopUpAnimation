@@ -5,7 +5,7 @@
 
 废话不多多,先看看效果图
 
-![image](https://raw.githubusercontent.com/hczcgq/-PopUpAnimation/master/device-2017-01-11-191910.png)
+![image](https://raw.githubusercontent.com/hczcgq/-PopUpAnimation/master/device-2017-01-11-191910.gif)
 
 
 #### 实现过程
